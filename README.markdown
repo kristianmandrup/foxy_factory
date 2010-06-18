@@ -13,7 +13,7 @@ Also create new instances factory style.
 
 ## Configuration ##
 
-Imagine this namespace structure
+Imagine this namespace structure:
 
 <pre><code>    
   class Basic
@@ -62,8 +62,7 @@ You can at any time change the implicit root for a given factory
 ## Find constant ##
 
 Find constant `Howrah::MyClass`
-<pre><code>
-factory.find_constant :my_class
+<pre><code>factory.find_constant :my_class
 
 => Howrah::MyClass
 </code></pre>
@@ -128,8 +127,7 @@ Find class `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
 
 == Create instance
 
-<pre><code>
-  factory.create :my_module, :my_nested_class, :args => [2, 'Hello'] do |p|
+<pre><code>  factory.create :my_module, :my_nested_class, :args => [2, 'Hello'] do |p|
     puts p.number * p.say
   end 
   
