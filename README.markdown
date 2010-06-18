@@ -92,7 +92,7 @@ Find constant `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
 => Howrah::MyModule::MyNestedModule::MyDoubleNestedClass
 </code></pre>
 
-== Find module
+## Find module ##
 
 Find module `Howrah::MyModule`
 <pre><code>factory.find_module :my_module
@@ -111,7 +111,7 @@ Find module `Howrah::MyModule::MyNestedModule::MyNestedClass` but not class!
 => error: ConstantIsNotModuleError
 </code></pre>
 
-== Find Class
+## Find Class ##
 
 Find class `Howrah::MyModule`
 <pre><code>factory.find_class :my_module
@@ -125,7 +125,7 @@ Find class `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
 => Howrah::MyModule::MyNestedModule::MyDoubleNestedClass
 </code></pre>
 
-== Create instance
+## Create instance ##
 
 <pre><code>  factory.create :my_module, :my_nested_class, :args => [2, 'Hello'] do |p|
     puts p.number * p.say
@@ -140,7 +140,7 @@ Find class `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
 
 Ideas for improving the create argument handling are most welcome!
 
-== Note on Patches/Pull Requests
+## Note on Patches/Pull Requests ##
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -150,6 +150,6 @@ Ideas for improving the create argument handling are most welcome!
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+## Copyright ##
 
 Copyright (c) 2010 Kristian Mandrup. See LICENSE for details.
