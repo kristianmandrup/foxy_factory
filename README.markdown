@@ -3,10 +3,19 @@
 Find Ruby kernel registered Constants, including Modules and Classes using convenient finder methods. 
 Also create new instances factory style.
 
-== Configuration
+## Install ## 
 
-<pre><code>
+<code>$ gem install foxy_factory</code> 
 
+## Usage ## 
+
+<code>require 'foxy_factory'</code> 
+
+## Configuration ##
+
+Imagine this namespace structure
+
+<pre><code>    
   class Basic
     def initialize(number, say = "Hello", &block)
       @number = number
@@ -50,53 +59,72 @@ You can at any time change the implicit root for a given factory
   factory.base_namespace = :my_root
 </code></pre>
 
-== Find constant
+## Find constant ##
 
 Find constant `Howrah::MyClass`
-<code>factory.find_constant :my_class
-=> Howrah::MyClass</code>
+<pre><code>
+factory.find_constant :my_class
+
+=> Howrah::MyClass
+</code></pre>
 
 Find constant `Howrah::NonExistingClass` - should raise error
-<code>factory.find_constant :non_existing_class
-=> error: ConstantNotFoundError</code>
+<pre><code>factory.find_constant :non_existing_class
+
+=> error: ConstantNotFoundError
+</code></pre>
 
 Find constant `Howrah::MyModule`
-<code>factory.find_constant :my_module
-=> Howrah::MyModule</code>
+<pre><code>factory.find_constant :my_module
+  
+=> Howrah::MyModule
+</code></pre>
 
 Find constant `Howrah::MyModule::MyNestedClass`
-<code>factory.find_constant :my_module, :my_nested_class</code>
-<code>=> Howrah::MyModule::MyNestedClass</code>
+
+<pre><code>factory.find_constant :my_module, :my_nested_class
+  
+=> Howrah::MyModule::MyNestedClass
+</code></pre>
 
 Find constant `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
-<code>factory.find_constant :my_module, :my_nested_module, :my_double_nested_class
-=> Howrah::MyModule::MyNestedModule::MyDoubleNestedClass</code>
+<pre><code>factory.find_constant :my_module, :my_nested_module, :my_double_nested_class
+  
+=> Howrah::MyModule::MyNestedModule::MyDoubleNestedClass
+</code></pre>
 
 == Find module
 
+Find module `Howrah::MyModule`
+<pre><code>factory.find_module :my_module
+=> Howrah::MyModule  
+</code></pre>
+
 Find module `Howrah::MyModule::MyNestedModule`
-<code>factory.find_module :my_module, :my_nested_module</code>
+<pre><code>factory.find_module :my_module, :my_nested_module
 
-Find module `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
-<code>factory.find_module :my_module, :my_nested_module, :my_nested_class</code>
+=> Howrah::MyModule::MyNestedModule
+</code></pre>
 
-Find module `Howrah::MyModule::MyNestedModule`
-<code>factory.find_module :my_module, :my_nested_module
-=> Howrah::MyModule::MyNestedModule</code>
-
-Find module `Howrah::MyModule::MyNestedModule` but not class!
-<code>factory.find_module! :my_module, :my_nested_class
-=> error: ConstantIsNotModuleError</code>
+Find module `Howrah::MyModule::MyNestedModule::MyNestedClass` but not class!
+<pre><code>factory.find_module! :my_module, :my_nested_class
+  
+=> error: ConstantIsNotModuleError
+</code></pre>
 
 == Find Class
 
 Find class `Howrah::MyModule`
-<code>factory.find_class :my_module
-=> error: ConstantIsNotClassError</code>
+<pre><code>factory.find_class :my_module
+
+=> error: ConstantIsNotClassError
+</code></pre>
 
 Find class `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
-<code>factory.find_class :my_module, :my_nested_module, :my_nested_class
-=> Howrah::MyModule::MyNestedModule::MyDoubleNestedClass</code>
+<pre><code>factory.find_class :my_module, :my_nested_module, :my_nested_class
+  
+=> Howrah::MyModule::MyNestedModule::MyDoubleNestedClass
+</code></pre>
 
 == Create instance
 
