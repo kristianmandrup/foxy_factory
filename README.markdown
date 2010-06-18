@@ -1,13 +1,15 @@
 # Foxy Factory #
 
-Find Ruby kernel registered Constants, including Modules and Classes using convenient finder methods. 
-Also create new instances factory style.
+Find Constants, including Modules and Classes registered in the Ruby kernel using convenient finder methods. 
+Create new instances factory style. This is a way more advanced utility than 'constantize' and similar more "primitive" factory methods.
+Foxy Factory caches each successful lookup for faster future retrieval, instead of having to go through the kernel.
+If a constant is not found in the cache, a kernel lookup will always be performed as a fall-back.
 
-## Install ## 
+## Install ##
 
 <code>$ gem install foxy_factory</code> 
 
-## Usage ## 
+## Usage ##
 
 <code>require 'foxy_factory'</code> 
 
