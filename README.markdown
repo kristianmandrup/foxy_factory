@@ -133,12 +133,10 @@ Find class `Howrah::MyModule::MyNestedModule::MyDoubleNestedClass`
   
   => Hello Hello
 
-  factory.create [], :my_class, :args => 2 do |p|
+  factory.create :my_class, :args => 2 do |p|
     puts p.number * "Hello "
   end 
 </code></pre>
-
-Ideas for improving the create argument handling are most welcome!
 
 ## Note on Patches/Pull Requests ##
  
